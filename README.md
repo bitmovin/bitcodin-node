@@ -1,5 +1,6 @@
 # [![bitcodin](http://www.bitcodin.com/wp-content/uploads/2014/10/bitcodin-small.gif)](http://www.bitcodin.com)
 [![build status](https://travis-ci.org/bitmovin/bitcodin-node.svg)](https://travis-ci.org/bitmovin/bitcodin-node)
+[![npm version](https://badge.fury.io/js/bitcodin.svg)](http://badge.fury.io/js/bitcodin)
 [![Coverage Status](https://coveralls.io/repos/bitmovin/bitcodin-node/badge.svg?branch=master)](https://coveralls.io/r/bitmovin/bitcodin-node?branch=master)
 
 The bitcodin API for NodeJS is a seamless integration with the [bitcodin cloud transcoding system](http://www.bitcodin.com). It enables the generation of MPEG-DASH and HLS content in just some minutes.
