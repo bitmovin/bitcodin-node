@@ -11,7 +11,7 @@ First add the npm module to your project `npm install bitcodin --save`. All call
 
 An example how you can instantiate the bitcodin API is shown in the following:
 
-```nodejs
+```javascript
 var bitcodin = require('bitcodin')('THIS_IS_MY_API_KEY');
 
 bitcodin.input.list()
