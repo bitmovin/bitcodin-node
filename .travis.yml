@@ -1,0 +1,8 @@
+language: node_js
+notifications:
+  email:
+  - bitcodin-node@bitmovin.net
+before_install:
+- openssl aes-256-cbc -K $encrypted_282d4c3afc4f_key -iv $encrypted_282d4c3afc4f_iv
+  -in test/resources/settings.json.enc -out test/resources/settings.json -d
+- npm install -g grunt-cli

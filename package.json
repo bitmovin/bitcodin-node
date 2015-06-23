@@ -1,0 +1,30 @@
+{
+  "name": "bitcodin",
+  "version": "0.1.0",
+  "description": "Bitcodin API wrapper",
+  "main": "lib/bitcodin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitmovin/bitcodin-node.git"
+  },
+  "keywords": [
+    "bitcodin",
+    "video transcoding",
+    "api"
+  ],
+  "author": "Bitmovin <bitcodin-node@bitmovin.net> (http://bitmovin.net/)",
+  "bugs": {
+    "url": "https://github.com/bitmovin/bitcodin-node/issues"
+  },
+  "homepage": "https://github.com/bitmovin/bitcodin-node",
+  "dependencies": {
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5"
+  }
+}
