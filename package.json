@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/bitmovin/bitcodin-node",
   "dependencies": {
+    "lodash": "^3.9.3",
     "q": "^1.4.1"
   },
   "devDependencies": {

@@ -1,0 +1,20 @@
+{
+  "email": "EMAIL",
+  "password": "PASSWORD",
+  "apiKey": "API_KEY",
+  "s3OutputEUWest": {
+    "accessKey": "AWS_ACCESS_KEY",
+    "secretKey": "AWS_SECRET_KEY",
+    "region": "S3_BUCKET_REGION",
+    "name": "NAME",
+    "bucket": "S3_BUCKET_NAME",
+    "prefix": "SUBFOLDER"
+  },
+  "ftpOutput": {
+    "name": "FTP_NAME",
+    "host": "FTP_HOST",
+    "username": "FTP_USERNAME",
+    "password": "FTP_PASSWORD",
+    "passive": false
+  }
+}
