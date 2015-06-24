@@ -3,46 +3,29 @@
  */
 
 require('mocha');
+require('chai').use(require("chai-as-promised")).should();
 
-var should = require('chai').should(),
-    settings = require('./resources/settings.json'),
+var settings = require('./resources/settings.json'),
     rest = require('../lib/rest');
 
 describe('REST', function() {
     describe('#get', function() {
-        it('should return status code 401', function(done) {
-            rest.get('/').then(function() {
-                should.Throw();
-                done();
-            }, function(err) {
-                err.should.have.property('status', 401);
-                done();
-            });
+        it('should return status code 401', function() {
+            var err = {"message": "Given bitcodin-api-key is not authorized!", "status": 401};
+            return rest.get('/').should.eventually.be.rejectedWith(err);
         });
 
-        it('should return status code 404', function(done) {
+        it('should return status code 404', function() {
             rest.addHeader('bitcodin-api-key', settings.apiKey);
 
-            rest.get('/').then(function() {
-                should.Throw();
-                done();
-            }, function(err) {
-                err.should.have.property('status').equal(404);
-                done();
-            });
+            var err = {"message": "unknown api-request-url", "status": 404};
+            return rest.get('/').should.eventually.be.rejectedWith(err);
         });
 
-        it('should list sintel as default input', function(done) {
+        it('should list sintel as default input', function() {
             rest.addHeader('bitcodin-api-key', settings.apiKey);
 
-            rest.get('/inputs').then(function(res) {
-                res.should.have.property('inputs').with.length(1);
-                res.inputs[0].url.should.equal('http://eu-storage.bitcodin.com/inputs/Sintel.2010.720p.mkv');
-                done();
-            }, function() {
-                should.Throw();
-                done();
-            });
+            return rest.get('/inputs').should.eventually.have.property('inputs');
         });
     });
 });
