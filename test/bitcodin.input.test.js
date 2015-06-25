@@ -35,13 +35,25 @@ describe('Input', function () {
     });
 
     it('should analyze an input', function () {
-        var promise = bitcodin.input.analayze(inputIds[0]);
+        var promise = bitcodin.input.analyze(inputIds[0]);
         return promise.should.eventually.have.property('inputId', inputIds[0]);
+    });
+
+    it('should not analyze input for a invalid input id', function () {
+        return util.testAll([undefined, 'foo'], function(inputId) {
+            return bitcodin.input.analyze(inputId).should.eventually.be.rejected;
+        });
     });
 
     it('should get input details for a given input id', function () {
         var promise = bitcodin.input.get(inputIds[0]);
         return promise.should.eventually.have.property('inputId', inputIds[0]);
+    });
+
+    it('should not get input details for a invalid input id', function () {
+        return util.testAll([undefined, 'foo'], function(inputId) {
+            return bitcodin.input.get(inputId).should.eventually.be.rejected;
+        });
     });
 
     it('should list available inputs', function () {
@@ -51,6 +63,12 @@ describe('Input', function () {
     it('should list inputs of a given page', function () {
         var page = 2;
         return bitcodin.input.list(page).should.eventually.be.fulfilled;
+    });
+
+    it('should not delete input for a invalid input id', function () {
+        return util.testAll([undefined, 'foo'], function(inputId) {
+            return bitcodin.input.delete(inputId).should.eventually.be.rejected;
+        });
     });
 
     it('should delete all created inputs', function () {

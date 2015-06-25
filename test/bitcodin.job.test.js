@@ -40,8 +40,20 @@ describe('Job', function () {
         return bitcodin.job.getDetails(2874).should.eventually.be.fulfilled;
     });
 
+    it('should not get job details for a invalid id', function () {
+        return util.testAll([undefined, 'foo'], function(jobId) {
+            return bitcodin.job.getDetails(jobId).should.eventually.be.rejected;
+        });
+    });
+
     it('should get the job status for a given job id', function () {
         return bitcodin.job.getStatus(2874).should.eventually.be.fulfilled;
+    });
+
+    it('should not get job status for a invalid id', function () {
+        return util.testAll([undefined, 'foo'], function(jobId) {
+            return bitcodin.job.getStatus(jobId).should.eventually.be.rejected;
+        });
     });
 
     it('should create a new transfer job', function () {
@@ -55,5 +67,11 @@ describe('Job', function () {
 
     it('should get the transfer job details for a given id', function () {
         return bitcodin.job.transfer.list(2874).should.eventually.be.fulfilled;
+    });
+
+    it('should not list transfer job details for a invalid id', function () {
+        return util.testAll([undefined, 'foo'], function(jobId) {
+            return bitcodin.job.transfer.list(jobId).should.eventually.be.rejected;
+        });
     });
 });

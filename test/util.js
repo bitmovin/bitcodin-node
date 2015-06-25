@@ -3,11 +3,14 @@
  */
 
 require('mocha');
-require('chai').use(require("chai-as-promised")).should();
 
-var Q = require('q');
+var chai = require('chai').use(require("chai-as-promised")),
+    Q = require('q');
+
+chai.should();
 
 module.exports = {
+    'expect': chai.expect,
     'settings': require('./resources/settings.json'),
     'testAll': function (elems, fun) {
         var promises = [];

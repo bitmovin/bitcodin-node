@@ -44,9 +44,21 @@ describe('Output', function () {
         return bitcodin.output.getDetails(outputIds[0]).should.eventually.be.fulfilled;
     });
 
+    it('should not get output details for a invalid output id', function () {
+        return util.testAll([undefined, 'foo'], function(outputId) {
+            return bitcodin.output.getDetails(outputId).should.eventually.be.rejected;
+        });
+    });
+
     it('should delete an output for a given output id', function () {
         return util.testAll(outputIds, function(outputId) {
             return bitcodin.output.delete(outputId).should.eventually.be.fulfilled;
+        });
+    });
+
+    it('should not delete output for a invalid output id', function () {
+        return util.testAll([undefined, 'foo'], function(outputId) {
+            return bitcodin.output.delete(outputId).should.eventually.be.rejected;
         });
     });
 });

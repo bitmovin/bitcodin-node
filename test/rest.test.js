@@ -2,10 +2,7 @@
  * Created by mfillafer on 23.06.15.
  */
 
-require('mocha');
-require('chai').use(require("chai-as-promised")).should();
-
-var settings = require('./resources/settings.json'),
+var util = require('./util'),
     rest = require('../lib/rest');
 
 describe('REST', function () {
@@ -15,15 +12,19 @@ describe('REST', function () {
     });
 
     it('should return status code 404', function () {
-        rest.addHeader('bitcodin-api-key', settings.apiKey);
+        rest.addHeader('bitcodin-api-key', util.settings.apiKey);
 
         var err = {"message": "unknown api-request-url", "status": 404};
         return rest.get('/').should.eventually.be.rejectedWith(err);
     });
 
     it('should list sintel as default input', function () {
-        rest.addHeader('bitcodin-api-key', settings.apiKey);
+        rest.addHeader('bitcodin-api-key', util.settings.apiKey);
 
         return rest.get('/inputs').should.eventually.have.property('inputs');
+    });
+
+    it('should set the hostname', function() {
+        rest.setHostname('localhost');
     });
 });

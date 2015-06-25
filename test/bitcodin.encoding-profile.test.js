@@ -51,9 +51,21 @@ describe('EncodingProfile', function () {
         return bitcodin.encodingProfile.get(encodingProfileIds[0]).should.eventually.be.fulfilled;
     });
 
+    it('should not get the encoding profile for a invalid id', function () {
+        return util.testAll([undefined, 'foo'], function(encodingProfileId) {
+            return bitcodin.encodingProfile.get(encodingProfileId).should.eventually.be.rejected;
+        });
+    });
+
     it('should delete all created encodingProfiles', function () {
         return util.testAll(encodingProfileIds, function (encodingProfileId) {
             return bitcodin.encodingProfile.delete(encodingProfileId).should.eventually.be.fulfilled;
+        });
+    });
+
+    it('should not delete the encoding profile for a invalid id', function () {
+        return util.testAll([undefined, 'foo'], function(encodingProfileId) {
+            return bitcodin.encodingProfile.delete(encodingProfileId).should.eventually.be.rejected;
         });
     });
 });
