@@ -26,7 +26,7 @@
     "url": "https://github.com/bitmovin/bitcodin-node/issues"
   },
   "engines": {
-    "node": ">= v0.10.0"
+    "node": "v0.11"
   },
   "dependencies": {
     "lodash": "^3.9.3",
