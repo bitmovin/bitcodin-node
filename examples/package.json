@@ -1,0 +1,9 @@
+{
+  "name": "examples",
+  "description": "bitcodin-node examples",
+  "author": "martin.fillafer@bitmovin.net",
+  "dependencies": {
+    "bitcodin": "^0.1.3",
+    "q": "^1.4.1"
+  }
+}
