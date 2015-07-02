@@ -6,33 +6,21 @@ var util = require('./util'),
     bitcodin = require('../lib/bitcodin')(util.settings.apiKey);
 
 describe('Payment', function () {
-    it('should update invoice information', function () {
-        var invoiceInfo = {
-            'companyName': 'bitmovin GmbH',
-            'firstName': 'Stefan',
-            'lastName': 'Lederer',
-            'address': 'Lakeside B01',
-            'addressLineOptional': '',
-            'postalCode': 9020,
-            'city': 'Klagenfurt',
-            'country': 'Austria',
-            'vatNumber': 'ATU68021428'
-        };
+    var invoiceInfo = {
+        'firstName': 'Stefan',
+        'lastName': 'Lederer',
+        'address': 'Lakeside B01',
+        'postalCode': '9020',
+        'city': 'Klagenfurt',
+        'country': 'Austria',
+        'vatNumber': 'ATU68021428'
+    };
 
+    it('should update invoice information', function () {
         return bitcodin.payment.invoice.updateInfo(invoiceInfo).should.eventually.be.fulfilled;
     });
 
     it('should get the invoice information', function () {
-        var invoiceInfo = {
-            'firstName': 'Stefan',
-            'lastName': 'Lederer',
-            'address': 'Lakeside B01',
-            'postalCode': 9020,
-            'city': 'Klagenfurt',
-            'country': 'Austria',
-            'vatNumber': 'ATU68021428'
-        };
-
         return bitcodin.payment.invoice.getInfo().should.eventually.include(invoiceInfo);
     });
 
