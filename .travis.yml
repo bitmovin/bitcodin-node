@@ -6,7 +6,7 @@ notifications:
   email:
   - bitcodin-node@bitmovin.net
 before_install:
-- openssl aes-256-cbc -K $encrypted_72ad2aca5717_key -iv $encrypted_72ad2aca5717_iv
+- openssl aes-256-cbc -K $encrypted_6f4c562257d5_key -iv $encrypted_6f4c562257d5_iv 
   -in test/resources/settings.json.enc -out test/resources/settings.json -d
 script: npm run-script cover
 after_script: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
