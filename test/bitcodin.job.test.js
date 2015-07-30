@@ -27,6 +27,35 @@ describe('Job', function () {
         return promise.should.eventually.be.fulfilled;
     });
 
+    it('should create a new job with drm configuration', function () {
+        var jobConfig = {
+            'inputId': 3315,
+            'encodingProfileId': 7365,
+            'manifestTypes': [
+                'mpd',
+                'm3u8'
+            ],
+            'speed': 'standard',
+            'drmConfig': {
+                system: 'widevine',
+                provider: 'widevine_test',
+                signingKey: '1ae8ccd0e7985cc0b6203a55855a1034afc252980e970ca90e5202689f947ab9',
+                signingIV: 'd58ce954203b7c9a9a9d467f59839249',
+                requestUrl: 'http://license.uat.widevine.com/cenc/getcontentkey',
+                contentId: '746573745f69645f4639465043304e4f',
+                method: 'mpeg_cenc'
+            }
+        };
+
+      var promise = bitcodin.job.create(jobConfig);
+
+      promise.then(function (data) {
+        jobIds.push(data.jobId);
+      });
+
+      return promise.should.eventually.be.fulfilled;
+    });
+
     it('should list jobs', function () {
         return bitcodin.job.list().should.eventually.be.fulfilled;
     });
