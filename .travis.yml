@@ -5,6 +5,7 @@ node_js:
 notifications:
   email:
   - bitcodin-node@bitmovin.net
+  - dominic.miglar@bitmovin.net
 before_install:
 - openssl aes-256-cbc -K $encrypted_6f4c562257d5_key -iv $encrypted_6f4c562257d5_iv 
   -in test/resources/settings.json.enc -out test/resources/settings.json -d
