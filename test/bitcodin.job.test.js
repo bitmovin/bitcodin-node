@@ -27,7 +27,7 @@ describe('Job', function () {
         return promise.should.eventually.be.fulfilled;
     });
 
-    it('should create a new job with drm configuration', function () {
+    it('should create a new job with widevine drm configuration', function () {
         var jobConfig = {
             'inputId': 3315,
             'encodingProfileId': 7365,
@@ -54,6 +54,86 @@ describe('Job', function () {
       });
 
       return promise.should.eventually.be.fulfilled;
+    });
+
+    it('should create a new job with playready drm configuration', function () {
+        var jobConfig = {
+            'inputId': 3315,
+            'encodingProfileId': 7365,
+            'manifestTypes': [
+                'mpd',
+                'm3u8'
+            ],
+            'speed': 'standard',
+            'drmConfig': {
+                "system": "playready",
+                "keySeed": "XVBovsmzhP9gRIZxWfFta3VVRPzVEWmJsazEJ46I",
+                "laUrl": "http://playready.directtaps.net/pr/svc/rightsmanager.asmx",
+                "method": "mpeg_cenc",
+                "kid": "746573745f69645f4639465043304e4f"
+            }
+        };
+
+        var promise = bitcodin.job.create(jobConfig);
+
+        promise.then(function (data) {
+            jobIds.push(data.jobId);
+        });
+
+        return promise.should.eventually.be.fulfilled;
+    });
+
+    it('should create a new job with widevine and playready (combined) drm configuration', function () {
+        var jobConfig = {
+            'inputId': 3315,
+            'encodingProfileId': 7365,
+            'manifestTypes': [
+              'mpd',
+              'm3u8'
+            ],
+            'speed': 'standard',
+            'drmConfig': {
+                "system": "widevine_playready",
+                "kid": "eb676abbcb345e96bbcf616630f1a3da",
+                "key": "100b6c20940f779a4589152b57d2dacb",
+                "laUrl": "http://playready.directtaps.net/pr/svc/rightsmanager.asmx?PlayRight=1&ContentKey=EAtsIJQPd5pFiRUrV9Layw==",
+                "method": "mpeg_cenc",
+                "pssh": "#CAESEOtnarvLNF6Wu89hZjDxo9oaDXdpZGV2aW5lX3Rlc3QiEGZrajNsamFTZGZhbGtyM2oqAkhEMgA="
+            }
+        };
+
+        var promise = bitcodin.job.create(jobConfig);
+
+        promise.then(function (data) {
+            jobIds.push(data.jobId);
+        });
+
+        return promise.should.eventually.be.fulfilled;
+    });
+
+    it('should create a new job with hls encryption configuration', function () {
+        var jobConfig = {
+            'inputId': 3315,
+            'encodingProfileId': 7365,
+            'manifestTypes': [
+                'mpd',
+                'm3u8'
+            ],
+            'speed': 'standard',
+            'hlsEncryptionConfig': {
+                "method": "SAMPLE-AES",
+                "key": "cab5b529ae28d5cc5e3e7bc3fd4a544d",
+                "iv": "08eecef4b026deec395234d94218273d"
+            }
+        };
+
+        var promise = bitcodin.job.create(jobConfig);
+
+        promise.then(function (data) {
+            jobIds.push(data.jobId);
+        });
+
+        return promise.should.eventually.be.fulfilled;
     });
 
     it('should list jobs', function () {
