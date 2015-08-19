@@ -136,6 +136,38 @@ describe('Job', function () {
         return promise.should.eventually.be.fulfilled;
     });
 
+    it('should create a new job with an input which has multiple audio streams', function () {
+        var jobConfig = {
+            'inputId': 13405,
+            'encodingProfileId': 16613,
+            'manifestTypes': [
+                'mpd',
+                'm3u8'
+            ],
+            'speed': 'standard',
+            'audioMetaData': [
+                {
+                    'defaultStreamId': 0,
+                    'language': 'de',
+                    'label': 'Just Sound'
+                },
+                {
+                    'defaultStreamId': 1,
+                    'language': 'en',
+                    'label': 'Sound and Voice'
+                }
+            ]
+        };
+
+        var promise = bitcodin.job.create(jobConfig);
+
+        promise.then(function (data) {
+            jobIds.push(data.jobId);
+        });
+
+        return promise.should.eventually.be.fulfilled;
+    });
+
     it('should list jobs', function () {
         return bitcodin.job.list().should.eventually.be.fulfilled;
     });
