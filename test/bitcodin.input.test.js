@@ -22,7 +22,7 @@ describe('Input', function () {
 
     it('should create an input from a http input config object', function () {
         var httpInputConfig = {
-            url: 'http://ftp.nluug.nl/pub/graphics/blender/demo/movies/Sintel.2010.720p.mkv'
+            url: 'http://eu-storage.bitcodin.com/inputs/Sintel.2010.720p.mkv'
         };
         var promise = bitcodin.input.create(httpInputConfig);
 
