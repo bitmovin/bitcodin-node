@@ -9,7 +9,7 @@ describe('Input', function () {
     var inputIds = [];
 
     it('should create an input from a URL string', function () {
-        var url = 'http://eu-storage.bitcodin.com/inputs/Sintel.2010.720p.mkv';
+        var url = 'http://bitbucketireland.s3.amazonaws.com/Sintel-original-short.mkv';
         var promise = bitcodin.input.create(url);
 
         promise.then(function (data) {
@@ -22,7 +22,7 @@ describe('Input', function () {
 
     it('should create an input from a http input config object', function () {
         var httpInputConfig = {
-            url: 'http://eu-storage.bitcodin.com/inputs/Sintel.2010.720p.mkv'
+            url: 'http://bitbucketireland.s3.amazonaws.com/Sintel-original-short.mkv'
         };
         var promise = bitcodin.input.create(httpInputConfig);
 
