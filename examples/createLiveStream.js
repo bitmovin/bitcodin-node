@@ -1,5 +1,5 @@
 var Q = require('q'),
-    bitcodin = require('bitcodin')('YOUR BITCODIN API KEY'),
+    bitcodin = require('bitcodin')('INSERT YOUR API KEY'),
     createEncodingProfilePromise, createOutputPromise;
 
 /*
@@ -73,7 +73,7 @@ Q.all([createEncodingProfilePromise, createOutputPromise])
             console.log('Successfully created output and encoding profile!');
             console.log('Starting live stream...');
             /*
-             Create your live stream
+                Create your live stream
              */
 
             var liveStreamConfig = {
@@ -94,10 +94,29 @@ Q.all([createEncodingProfilePromise, createOutputPromise])
         function(livestream) {
             console.log("Successfully created live stream!");
             console.log(livestream);
+            console.log("\n");
+            console.log("****************************************************************");
+            console.log("INFO: DONT FORGET TO DELETE LIVE STREAM WHEN FINISHED STREAMING!");
+            console.log("****************************************************************");
+            /*
+                Delete live stream when finished streaming
+             */
+            console.log("Deleting livestream...");
+            return bitcodin.livestream.delete(livestream.id)
         },
         function(createError)
         {
             console.log("Error while creating live stream!", createError);
         }
+    )
+    .then(
+        function() {
+            console.log("Successfully deleted live stream!");
+        },
+        function(error) {
+            console.log("Error while deleting live stream!", error);
+        }
     );
+
+
 

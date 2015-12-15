@@ -3,7 +3,7 @@
   "description": "bitcodin-node examples",
   "author": "martin.fillafer@bitmovin.net",
   "dependencies": {
-    "bitcodin": "^0.2.0",
+    "bitcodin": "^0.2.1",
     "q": "^1.4.1"
   }
 }
