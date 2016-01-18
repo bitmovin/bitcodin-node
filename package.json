@@ -1,6 +1,6 @@
 {
   "name": "bitcodin",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Bitcodin API wrapper",
   "homepage": "https://github.com/bitmovin/bitcodin-node",
   "main": "lib/bitcodin.js",
@@ -42,7 +42,7 @@
   "maintainers": [
     {
       "name": "Martin Fillafer",
-      "email": "martin.fillafer@bitmovin.net"
+      "email": "martin.fillafer@bitmovin.com"
     }
   ]
 }
