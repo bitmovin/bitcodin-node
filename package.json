@@ -1,6 +1,6 @@
 {
   "name": "bitcodin",
-  "version": "0.1.4",
+  "version": "0.2.1",
   "description": "Bitcodin API wrapper",
   "homepage": "https://github.com/bitmovin/bitcodin-node",
   "main": "lib/bitcodin.js",
