@@ -6,7 +6,7 @@ var util = require('./util'),
     bitcodin = require('../lib/bitcodin')(util.settings.apiKey);
 
 describe('Statistic', function () {
-
+/*
     it('should get the output statistics for the current calendar month', function () {
         return bitcodin.statistic.get().should.eventually.be.fulfilled;
     });
@@ -16,4 +16,5 @@ describe('Statistic', function () {
         var toDate = '2100-12-24';
         return bitcodin.statistic.jobs(fromDate, toDate).should.eventually.be.fulfilled;
     });
+*/
 });
