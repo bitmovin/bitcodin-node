@@ -12,7 +12,7 @@ Change directory to your project folder and install with NPM.
 cd your/project/folder
 npm install bitcodin --save
 ```
-
+ 
 # Usage
 
 Before you can start using the api you need to **set your API key.**
