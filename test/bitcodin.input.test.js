@@ -8,33 +8,41 @@ var util = require('./util'),
 describe('Input', function () {
     var inputIds = [];
 
-    it('should create an input from a URL string', function () {
-        var url = 'http://bitbucketireland.s3.amazonaws.com/Sintel-original-short.mkv';
-        var promise = bitcodin.input.create(url);
+    it('should create an input from a URL string with skipAnalysis set', function () {
+        this.timeout(30000);
+        var input = {};
+        input.skipAnalysis = true;
+        input.type = 'url';
+        input.url = 'http://bitbucketireland.s3.amazonaws.com/Sintel-original-short.mkv';
+
+        var promise = bitcodin.input.create(input);
 
         promise.then(function (data) {
             data.should.have.property('inputId');
             inputIds.push(data.inputId);
-        });
-
+        }).done();
         return promise.should.eventually.be.fulfilled;
     });
 
     it('should create an input from a http input config object', function () {
-        var httpInputConfig = {
+        this.timeout(30000);
+        var input = {
+            type: 'url',
             url: 'http://bitbucketireland.s3.amazonaws.com/Sintel-original-short.mkv'
         };
-        var promise = bitcodin.input.create(httpInputConfig);
+        var promise = bitcodin.input.create(input);
 
         promise.then(function (data) {
             data.should.have.property('inputId');
             inputIds.push(data.inputId);
-        });
+
+        }).done();
 
         return promise.should.eventually.be.fulfilled;
     });
 
     it('should analyze an input', function () {
+        this.timeout(60000);
         var promise = bitcodin.input.analyze(inputIds[0]);
         return promise.should.eventually.have.property('inputId', inputIds[0]);
     });
