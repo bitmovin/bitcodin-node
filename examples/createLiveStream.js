@@ -14,7 +14,7 @@ var liveEncodingProfile = {
             "defaultStreamId": 0,
             "bitrate": 3000000,
             "profile": "Main",
-            "preset": "Standard",
+            "preset": "premium",
             "height": 1080,
             "width": 1920
         },
@@ -23,7 +23,7 @@ var liveEncodingProfile = {
             "defaultStreamId": 0,
             "bitrate": 1500000,
             "profile": "Main",
-            "preset": "Standard",
+            "preset": "premium",
             "height": 720,
             "width": 1280
         },
@@ -32,7 +32,7 @@ var liveEncodingProfile = {
             "defaultStreamId": 0,
             "bitrate": 1000000,
             "profile": "Main",
-            "preset": "Standard",
+            "preset": "premium",
             "height": 480,
             "width": 640
         }
