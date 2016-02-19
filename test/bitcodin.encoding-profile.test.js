@@ -16,7 +16,7 @@ describe('EncodingProfile', function () {
                     "defaultStreamId": 0,
                     "bitrate": 1024000,
                     "profile": "Main",
-                    "preset": "Standard",
+                    "preset": "premium",
                     "height": 480,
                     "width": 204
                 }

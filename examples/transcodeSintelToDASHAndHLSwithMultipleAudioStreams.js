@@ -18,11 +18,27 @@ var encodingProfileConfiguration = {
     "videoStreamConfigs": [
         {
             "defaultStreamId": 0,
-            "bitrate": 512000,
+            "bitrate": 4800000,
             "profile": "Main",
-            "preset": "Standard",
+            "preset": "premium",
+            "height": 1080,
+            "width": 1920
+        },
+        {
+            "defaultStreamId": 0,
+            "bitrate": 2400000,
+            "profile": "Main",
+            "preset": "premium",
+            "height": 720,
+            "width": 1280
+        },
+        {
+            "defaultStreamId": 0,
+            "bitrate": 1200000,
+            "profile": "Main",
+            "preset": "premium",
             "height": 480,
-            "width": 640
+            "width": 854
         }
     ],
     "audioStreamConfigs": [

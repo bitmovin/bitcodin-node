@@ -62,7 +62,7 @@ var encodingProfileConfiguration = {
             "defaultStreamId": 0,
             "bitrate": 1024000,
             "profile": "Main",
-            "preset": "Standard",
+            "preset": "premium",
             "height": 768,
             "width": 1366
         }
