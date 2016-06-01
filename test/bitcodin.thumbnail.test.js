@@ -8,25 +8,28 @@ var util = require('./util'),
 describe('Thumbnail', function () {
     var thumbnails = [];
 
-    it('should create a thumbnail', function () {
-        var thumbnailConfiguration = {
-            "jobId": 254849,
-            "height": 320,
-            "position": 50,
-            "async": true
-        };
+    it('should create a thumbnail', function (done) {
+        var jobPromise = bitcodin.job.list(0, 'finished');
 
-        var promise = bitcodin.thumbnail.create(thumbnailConfiguration);
+        jobPromise.then(function (result) {
+            var thumbnailConfiguration = {
+                "jobId": result.jobs[0].jobId,
+                "height": 320,
+                "position": 50,
+                "async": true
+            };
 
-        promise.then(function (data) {
-            thumbnails.push(data);
-        });
+            var promise = bitcodin.thumbnail.create(thumbnailConfiguration);
 
-        return promise.should.eventually.be.fulfilled;
+            promise.then(function (data) {
+                thumbnails.push(data);
+                done();
+            }, done);
+        }, done);
     });
 
     it('should get a thumbnail for a given id', function () {
-        return bitcodin.thumbnail.get('141b44e6-61c3-42d7-81d2-65b450c60862').should.eventually.be.fulfilled;
+        return bitcodin.thumbnail.get(thumbnails[0].id).should.eventually.be.fulfilled;
     });
 
 });
