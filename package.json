@@ -1,6 +1,6 @@
 {
   "name": "bitcodin",
-  "version": "0.5.1",
+  "version": "0.6",
   "description": "Bitcodin API wrapper",
   "homepage": "https://github.com/bitmovin/bitcodin-node",
   "main": "lib/bitcodin.js",
@@ -15,7 +15,8 @@
   "keywords": [
     "bitcodin",
     "video transcoding",
-    "api"
+    "api",
+    "bitmovin"
   ],
   "author": {
     "name": "Martin Fillafer",
