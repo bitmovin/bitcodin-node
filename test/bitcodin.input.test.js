@@ -35,7 +35,23 @@ describe('Input', function () {
         promise.then(function (data) {
             data.should.have.property('inputId');
             inputIds.push(data.inputId);
+        }).done();
 
+        return promise.should.eventually.be.fulfilled;
+    });
+
+    it('should create an input asynchronously from a URL', function () {
+        this.timeout(30000);
+        var input = {};
+        input.skipAnalysis = true;
+        input.type = 'url';
+        input.url = 'http://bitbucketireland.s3.amazonaws.com/Sintel-original-short.mkv';
+
+        var promise = bitcodin.input.createAsync(input);
+
+        promise.then(function (data) {
+            data.should.have.property('inputId');
+            inputIds.push(data.inputId);
         }).done();
 
         return promise.should.eventually.be.fulfilled;
