@@ -23,7 +23,7 @@ createTransmuxPromise.then(
     }
 );
 
-crateTransmuxPromise = bitcodin.transmux.get(transmuxDetails.id);
+createTransmuxPromise = bitcodin.transmux.get(transmuxDetails.id);
 createTransmuxPromise.then(
     function (transmuxResponse) {
         console.log('Successfully got transmuxing details: ', transmuxResponse);
